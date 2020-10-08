@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-style: sans-serif;
+}
+
+nav {
+    height: 50px;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    height: 100px;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li {
+    height: 30px;
+    padding: 0 2rem;    
+}
+
+#showcase {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3rem;
+    text-align: center;
+    background-color: mediumseagreen;
+    color: white;
+}
+
+#showcase h1 {
+    margin-bottom: 1rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    color: white;
+}
+
+.img, .content {
+    width: 50%;
+    height: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+}
+
+.content h2 {
+    margin-bottom: 0.5rem;
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: white;
+}
+
+.info-1 {
+    background: steelblue;
+    align-content: flex-end;    
+}
+
+.img {
+    display: flex;
+    object-fit: cover;
+}
+
+.info-2 {
+    background: firebrick;
+    align-content: flex-start;
+}
+
+footer {
+    height: 50px;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+}
+
+@media (max-width: 500px) {
+    .info {
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+        flex: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .img, .info .content {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .info-1 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .info-2 {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        height: auto;
+    }
+}
+
