@@ -1,38 +1,70 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; /** Nice, I pretty much always apply this myself. */
 }
 
 body {
-    background-color: #333;
-    color: #fff;
-    font-family: sans-serif;
+	/** Nice, glad to see you applied all of these to the body! I do the same myself. */
+	/* background-color: #333; */
+	background: #333; /*? We can just specify background instead of background-color, however its probably better be more explicit as you have with background-color, just want to note you can use either one. */
+	color: #fff;
+	font-family: sans-serif;
 }
 
 .container {
-    max-width: 500px;
-    height: 100vh;
-    margin: auto;
-    border: 1px solid green;
+	max-width: 500px;
+	height: 100vh;
+	/* margin: auto; */
+	margin: 0 auto; /*! We want to apply margin auto only on the x-axis and not the y-axis per se. If we specify only margin: auto; then ;margin auto is being applied to both the x and the y axis. */
+	border: 1px solid green;
+	display: flex; /*? Just using this for the flex example */
+	flex-wrap: wrap; /*? We need this to get the blue box to wrap over to the next line when we set the width to 100% */
+	align-content: flex-start; /*? We need this to align both our columns to the top of the box. I don't think I covered this in class so let me talk about align-content real quick, and yes it is different from align-items. In short align-items is for single line flex boxes and align-content is for multi line flex boxes. Also align-items will not do anything for multi-line flex boxes and align-content will not do anything for single-line flex boxes. Also you can demo this by changing align-content to align-items and viewing the boxes above and below 500px to see the difference. You can read more about this here ---> https://stackoverflow.com/questions/27539262/whats-the-difference-between-align-content-and-align-items */
 }
 
 .box {
-    height: 25%;
-    width: 245px;
-    display: inline-block;
+	height: 25%;
+	/* width: 245px; */ /*? With widths and heights if you can set a percentage width, to make it a little more responsive. */
+	/* width: 49%; */ /*? Notice that we can't use 50% here, if we do the "box" will wrap onto the next line. */
+	/* display: inline-block; */ /*? Notice that with display inline block we have an un removable space between the red and blue boxes. We can fix this with display flex, the only reason I didn't have anyone do it for this homework assignment is that we had not cover it yet. I'm going to add the code in so you can see how that works. You can read more about this here ---> https://stackoverflow.com/questions/19038799/why-is-there-an-unexplainable-gap-between-these-inline-block-div-elements */
+	width: 50%; /*? We can set it to 50% instead of 49% with flex box */
 }
 
-@media(max-width: 500px) {
-    .box {
-        width: 100%;
-    }
-}
+/*! Remember that media queries are applied in the order they appear, though we are not overwriting the width of the box class so there are no ill-effects, its best practice to do you media queries last so that you never have to worry about it. */
+/* @media (max-width: 500px) {
+	.box {
+		width: 100%;
+	}
+} */
 
+/*! Just to show that there are multiple ways to accomplish this so I added some extra examples below. Check them out. I also added in some nested selectors. I like to be as specific as possible with my selectors (personal preference) what you have done here is great, just something to consider. */
 .box:first-child {
-    border: 1px solid red;
+	border: 1px solid red;
 }
+
+/* .container .box:nth-child(1) {
+    border: 1px solid red;
+} */
+
+/* .container .box:nth-child(odd) {
+    border: 1px solid red;
+} */
 
 .box:last-child {
-    border: 1px solid blue;
+	border: 1px solid blue;
+}
+
+/* .container .box:nth-child(2) {
+	border: 1px solid blue;
+} */
+
+/* .container .box:nth-child(even) {
+	border: 1px solid blue;
+} */
+
+@media (max-width: 500px) {
+	.box {
+		width: 100%;
+	}
 }
