@@ -1,149 +1,219 @@
+/*! Added some feedback in flex.html & flex.css, most of it is in flex.css! Let me know if there is anything I need to explain in more detail! Also I added my own solution to this in a folder called harcourt_solution. */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    font-style: sans-serif;
+	/* font-style: sans-serif; */ /*! No font-style CSS property */
+	font-family: sans-serif;
 }
 
 nav {
-    height: 50px;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
+	height: 50px;
+	width: 100%;
+	background-color: #333;
+	color: white;
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    height: 100px;
-    width: auto;
-    align-items: center;
-    justify-content: center;
+	list-style: none;
+	display: flex;
+	/* height: 100px; */
+	/*! We almost never want to set a height or width of a child to be bigger than the parent height/width. The parent <nav> has a height of 50px so we wouldn't want to set this to 100px; Turn the blue border on and turn change between 100% and 100px to see the difference. */
+	/* border: 1px solid blue; */
+	height: 100%;
+	/* width: auto; */
+	align-items: center;
+	justify-content: center;
 }
 
 nav ul li {
-    height: 30px;
-    padding: 0 2rem;    
+	/* height: 30px; */
+	/* padding: 0 2rem; */
+	padding: 0.5rem 2rem;
+	/*! The nav still is a little off-center and that is because our <li>'s have a height and they are starting at the top of the container, my recommendation remove the height of 30px. You could set the the <li>s to display flex and center them w/ align-items however I don't recommend this is as its a lot of extra CSS. You can sort of add the effect of a height with padding on the y-axis check out my padding I added. This should be more clear w/ the hover effect added below which just changes the background on hover. Swap between your and my padding to see the difference. */
+	cursor: pointer; /*? Just looks nicer with the pointer I think */
 }
 
+nav ul li:hover {
+	background: #444;
+}
+
+/*! Great job! */
 #showcase {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 3rem;
-    text-align: center;
-    background-color: mediumseagreen;
-    color: white;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0 3rem;
+	text-align: center;
+	background-color: mediumseagreen;
+	color: white;
 }
 
 #showcase h1 {
-    margin-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 .info {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+	color: white;
 }
 
-.img, .content {
-    width: 50%;
-    height: 100%;
+.img,
+.content {
+	width: 50%;
+	height: 100%;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    align-items: center;
-    justify-content: center;
-    text-align: justify;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	align-items: center;
+	justify-content: center;
+	text-align: justify;
 }
 
+/*! All this looks great */
+
 .content h2 {
-    margin-bottom: 0.5rem;
-    border-bottom: 1px;
+	margin-bottom: 0.5rem;
+	/* border-bottom: 1px;
     border-style: solid;
-    border-color: white;
+    border-color: white; */
+	border-bottom: 1px solid white; /*! We already talked about it but I would accomplish it this way if you want to separate it out like you did you'd want to do border-bottom-width: 1px;  border-bottom-style: solid; border-bottom-color: white; */
 }
 
 .info-1 {
-    background: steelblue;
-    align-content: flex-end;    
+	background: steelblue;
+	/* align-content: flex-end; */ /*? Remember align-content is only for multi line flex items, align-items is for single line flex items */
 }
 
 .img {
-    display: flex;
-    object-fit: cover;
+	display: flex;
+	/* object-fit: cover; */ /*? We are setting this elsewhere with background-size: cover; However object-fit can be really useful just as you are using it here. I would keep this in your back pocket. */
+}
+
+/*! Just setting the background image here, below are some styles for the background image as well. */
+.info-1 .img {
+	background: url(' https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80 ');
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/*! Just setting the background image here, below are some styles for the background image as well. */
+.info-2 .img {
+	background: url('https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .info-2 {
-    background: firebrick;
-    align-content: flex-start;
+	background: firebrick;
+	/* align-content: flex-start; */ /*? Remember align-content is only for multi line flex items, align-items is for single line flex items */
 }
 
+/*! I added the two next CSS rules. I believe you tried to work this on with the .info-1 & .info-2 align-content: flex-start | flex-end. However you want to be targeting the .content flex item not the entire .info-1 or .info-2 flex item. I can explain this in person more if this is confusing. */
+.info-1 .content {
+	align-items: flex-end;
+	text-align: right;
+}
+
+.info-2 .content {
+	align-items: flex-start;
+	text-align: left;
+}
+
+/*! Looks great! */
 footer {
-    height: 50px;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
+	height: 50px;
+	width: 100%;
+	background-color: #333;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+}
+
+/*! !!!!!! You can stick them all in the same media query !!!!! */
+@media (max-width: 500px) {
+	.info {
+		display: flex;
+		flex-direction: column;
+		width: 100vh;
+		flex: 100%;
+	}
 }
 
 @media (max-width: 500px) {
-    .info {
-        display: flex;
-        flex-direction: column;
-        width: 100vh;
-        flex: 100%;
-    }
+	/*! Remember the default value of height and width is auto, or in other words if I haven't defined a height the value is auto. Auto sizes the container to its content, in other words the height of content was only as big as the text in it. The image was disappearing b/c there is no content in the <div class="img"> in the HTML. This is why we want to remove all of these height autos and inherit the default values. */
+
+	.img,
+	.info .content {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+		/* height: auto; */
+	}
 }
 
 @media (max-width: 500px) {
-    .img, .info .content {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        height: auto;
-    }
+	.info-1 {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		/* height: auto; */
+	}
 }
 
 @media (max-width: 500px) {
-    .info-1 {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-    }
+	.info-2 {
+		display: flex;
+		flex-direction: column-reverse;
+		width: 100%;
+		/* height: auto; */
+	}
 }
 
-@media (max-width: 500px) {
-    .info-2 {
-        display: flex;
-        flex-direction: column-reverse;
-        width: 100%;
-        height: auto;
-    }
-}
+/*! I know my media queries are a little different, but they should do the necessary things with what you have set to make everything work. Let me know if you have any questions and I can explain any of this in more detail. Mainly notice that I can have multiple selectors in one media query. */
+/* @media (max-width: 500px) {
+	.info {
+		flex-direction: column;
+	}
 
+	.info .content {
+		align-items: center;
+		text-align: center;
+	}
+
+	.info .img,
+	.content {
+		width: 100%;
+	}
+
+	.info-2 {
+		flex-direction: column-reverse;
+	}
+} */
